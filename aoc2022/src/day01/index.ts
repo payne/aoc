@@ -11,7 +11,7 @@ const part1 = (rawInput: string) => {
 const part2 = (rawInput: string) => {
   const input = parseInput(rawInput);
 
-  return;
+  return sumOfTopThree(input); 
 };
 
 
@@ -20,7 +20,7 @@ export function groupCount(input: any) {
   return data;
 }
 
-export function calorieArray(input: any) {
+export function calorieArray(input: any): number[] {
   let groups = groupCount(input);
   let ca = groups.map(g => {
     let lines = g.split("\n");
@@ -40,7 +40,7 @@ export function maxCalories(input: any) {
 
 export function sumOfTopThree(input: any) {
   let ca = calorieArray(input)
-  ca.sort()
+  ca.sort( (a,b) => b-a)
   ca.forEach(v => console.log(`\t${v}`));
   return ca[0] + ca[1] + ca[2];
 }
