@@ -18,17 +18,20 @@ test('can read the file', () => {
   expect(contents.length).toBe(55)
 })
 
-test.skip('can count the groups', () => {
-  let groups = groupCount();
+test('can count the groups', () => {
+  let contents = read();
+  let groups = groupCount(contents);
   expect(groups.length).toBe(5)
 })
 
-test.skip('calorieArray works with example data', () => {
-  let ca = calorieArray()
+test('calorieArray works with example data', () => {
+  let contents = read();
+  let ca = calorieArray(contents)
   expect(ca).toStrictEqual([6000, 4000, 11000, 24000, 10000])
 })
 
-test.skip('maxCalories test with sample data', () => {
- expect(maxCalories()).toBe(24000)
+test('maxCalories test with sample data', () => {
+ let contents = read();
+ expect(maxCalories(contents)).toBe(24000)
 })
 
