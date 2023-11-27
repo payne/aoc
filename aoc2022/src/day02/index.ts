@@ -29,9 +29,12 @@ const rules:{[key:string]:any} = { Rock: { defeats: Scissors, score: 1  },
              };
 
 export function play(myChoice: string, theirChoice: string) { // TODO: type RPS
-   console.log(rules);
    const rule = rules[myChoice];
-   console.log(`For myChoice=${myChoice.toString()} rule is ${rule}`);
+   if (rule === undefined) {
+     console.log(`myChoice="${myChoice}" theirChoice="${theirChoice}"`);
+     console.log(rules);
+     console.log(`For myChoice=${myChoice} rule is ${rule}`);
+   }
    if (myChoice === theirChoice) return 3 + rule.score;
    if (rule.defeats === theirChoice) return 6 + rule.score;
    return 0 + rule.score;
@@ -45,9 +48,13 @@ export function strategyGuideScore(multiLineStragegyGuide: string): number {
 }
 
 function playRound(round: string) {
-  const parts = round.split(' ');
+  if (round.length==0) return 0;
+  const parts = round.trim().split(' ').map(s => s.trim())
   const theyPlay = codeToChoice[parts[0]]; // what is a more idiomatic way to do these three steps?
-  const wePlay = codeToChoice[parts[0]];
+  const wePlay = codeToChoice[parts[1]];
+  if (theyPlay===undefined) { console.log(`round="${round}" Could not find entry for "${parts[0]}"`) }
+  if (wePlay===undefined) { console.log(`round="${round}" Could not find entry for "${parts[1]}"`) }
+  if (parts[0].length === 0 || parts[1].length ===0 ) return 0;
   return play(wePlay, theyPlay);
 }
 
