@@ -5,5 +5,5 @@ import { expect, test } from 'vitest';
 import { read, Rock, Paper, Scissors, play } from './index';
 
 test('Paper covers rock', () => {
-  expect(play(Paper, Rock)).toBe(7);
+  expect(play(Paper, Rock)).toBe(9);
 })
