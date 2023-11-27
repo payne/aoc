@@ -37,7 +37,7 @@ export function play(myChoice: any, theirChoice: any) { // TODO: type RPS
    return 0 + rule.score;
 }
 
-const codeToChoice = { A: Rock, B: Paper, C: Scissors, X: Rock, Y: Paper, Z: Scissors};
+const codeToChoice:{[key:string]:string} = { 'A': Rock, 'B': Paper, 'C': Scissors, 'X': Rock, 'Y': Paper, 'Z': Scissors};
 
 export function strategyGuideScore(multiLineStragegyGuide: string): number {
   const rounds = multiLineStragegyGuide.split('\n');
