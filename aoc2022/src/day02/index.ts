@@ -23,12 +23,12 @@ export const Paper = Symbol("Paper");
 export const Scissors = Symbol("Scissors");
 */
 
-const rules = { Rock: { defeats: Scissors, score: 1  },
+const rules:{[key:string]:any} = { Rock: { defeats: Scissors, score: 1  },
                 Paper: { defeats: Rock, score: 2 },
                 Scissors: { defeats: Paper, score: 3 }, 
              };
 
-export function play(myChoice: any, theirChoice: any) { // TODO: type RPS
+export function play(myChoice: string, theirChoice: string) { // TODO: type RPS
    console.log(rules);
    const rule = rules[myChoice];
    console.log(`For myChoice=${myChoice.toString()} rule is ${rule}`);

@@ -6,7 +6,7 @@ import { read, groupCount, calorieArray, maxCalories, sumOfTopThree } from './in
 
 read = () => {
   let fileName = 'example1.data'
-  fileName = 'input.data' // aka the real test data
+  // fileName = 'input.data' // aka the real test data
   let contents = fs.readFileSync(`src/day01/./${fileName}`,'utf8');
   // console.log(contents);
   return contents;
@@ -32,8 +32,8 @@ test.skip('calorieArray works with example data', () => {
 
 test('maxCalories test with sample data', () => {
  let contents = read();
- //expect(maxCalories(contents)).toBe(24000)
- expect(maxCalories(contents)).toBe(71023)
+ expect(maxCalories(contents)).toBe(24000)
+ // expect(maxCalories(contents)).toBe(71023)
 })
 
 test.skip('sum of calories for top three', () => {
