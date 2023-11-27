@@ -17,15 +17,15 @@ const part2 = (rawInput: string) => {
 export const Rock = "Rock";
 export const Paper = "Paper";
 export const Scissors = "Scissors";
-/*
+/* -- why can't I use symbols?
 export const Rock = Symbol("Rock");
 export const Paper = Symbol("Paper");
 export const Scissors = Symbol("Scissors");
 */
 
 const rules = { Rock: { defeats: Scissors, score: 1  },
-                Scissors: { defeats: Paper, score: 2 }, 
-                Paper: { defeats: Rock, score: 3 }
+                Paper: { defeats: Rock, score: 2 },
+                Scissors: { defeats: Paper, score: 3 }, 
              };
 
 export function play(myChoice: any, theirChoice: any) { // TODO: type RPS
