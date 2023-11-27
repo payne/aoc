@@ -2,8 +2,17 @@
 // var fs = require('fs');
 import * as fs from 'fs';
 import { expect, test } from 'vitest';
-import { read, Rock, Paper, Scissors, play } from './index';
+import { read, Rock, Paper, Scissors, play, strategyGuideScore } from './index';
 import { hasUncaughtExceptionCaptureCallback } from 'process';
+
+test(`Total score with example strategy guide`, () => {
+  const exampleStrategyGuide = `
+  A Y
+  B X
+  C Z
+  `;
+  expect(strategyGuideScore(exampleStrategyGuide)).toBe(15);
+})
 
 test('Paper covers rock', () => {
   expect(play(Paper, Rock)).toBe(8);

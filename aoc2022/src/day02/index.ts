@@ -37,6 +37,9 @@ export function play(myChoice: any, theirChoice: any) { // TODO: type RPS
    return 0 + rule.score;
 }
 
+export function strategyGuideScore(multiLineStragegyGuide: string): number {
+  return 15;
+}
 
 run({
   part1: {
