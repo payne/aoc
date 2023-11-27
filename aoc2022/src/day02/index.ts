@@ -37,8 +37,18 @@ export function play(myChoice: any, theirChoice: any) { // TODO: type RPS
    return 0 + rule.score;
 }
 
+const codeToChoice = { A: Rock, B: Paper, C: Scissors, X: Rock, Y: Paper, Z: Scissors};
+
 export function strategyGuideScore(multiLineStragegyGuide: string): number {
-  return 15;
+  const rounds = multiLineStragegyGuide.split('\n');
+  return rounds.reduce((total, round) => total + playRound(round), 0);
+}
+
+function playRound(round: string) {
+  const parts = round.split(' ');
+  const theyPlay = codeToChoice[parts[0]]; // what is a more idiomatic way to do these three steps?
+  const wePlay = codeToChoice[parts[0]];
+  return play(wePlay, theyPlay);
 }
 
 run({
