@@ -18,17 +18,17 @@ zoneight234
 7pqrstsixteen
 `;
 
-test.skip(`Part 2 sample calibration values`, () => {
-  const sum = sumCalibrationValues(part2test.skipData);
+test(`Part 2 sample calibration values`, () => {
+  const sum = sumCalibrationValues(part2testData);
   expect(sum).to.eq(281);
 });
 
-test.skip(`Sample calibration values`, () => {
-  const sum = sumCalibrationValues(test.skipData);
+test(`Sample calibration values`, () => {
+  const sum = sumCalibrationValues(testData);
   expect(sum).to.eq(142);
 });
 
-test.skip(`digit at the end`, () => {
+test(`digit at the end`, () => {
   const number = firstAndLastDigit(`onellbgsvseven9`);
   expect(number).to.eq(19);
 });
@@ -43,17 +43,17 @@ test(`zoneight234 should be 14`, () => {
   expect(number).to.eq(14);
 });
 
-test.skip(`Simple example of two digits`, () => {
+test(`Simple example of two digits`, () => {
   const number = firstAndLastDigit(`a1b2c3d4e5f`);
   expect(number).to.eq(15);
 });
 
-test.skip(`Simple example of two digits`, () => {
+test(`Simple example of two digits`, () => {
   const number = firstAndLastDigit(`pqr3stu8vwx`);
   expect(number).to.eq(38);
 });
 
-test.skip(`example with just one digit`, () => {
+test(`example with just one digit`, () => {
   const number = firstAndLastDigit("treb7uchet");
   expect(number).to.eq(77);
 });
