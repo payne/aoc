@@ -14,16 +14,19 @@ const part2 = (rawInput: string) => {
   return;
 };
 
+/*
 export const Rock = "Rock";
 export const Paper = "Paper";
 export const Scissors = "Scissors";
-/* -- why can't I use symbols?
+*/
+/* -- why can't I use symbols? 
+*/
 export const Rock = Symbol("Rock");
 export const Paper = Symbol("Paper");
 export const Scissors = Symbol("Scissors");
-*/
 
-const rules:{[key:string]:any} = { Rock: { defeats: Scissors, score: 1  },
+const rules /* :{[key:string]:any}  */ = 
+              { Rock: { defeats: Scissors, score: 1  },
                 Paper: { defeats: Rock, score: 2 },
                 Scissors: { defeats: Paper, score: 3 }, 
              };
@@ -31,9 +34,9 @@ const rules:{[key:string]:any} = { Rock: { defeats: Scissors, score: 1  },
 export function play(myChoice: string, theirChoice: string) { // TODO: type RPS
    const rule = rules[myChoice];
    if (rule === undefined) {
-     console.log(`myChoice="${myChoice}" theirChoice="${theirChoice}"`);
+     console.log(`myChoice="${myChoice.toString()}" theirChoice="${theirChoice.toString()}"`);
      console.log(rules);
-     console.log(`For myChoice=${myChoice} rule is ${rule}`);
+     console.log(`For myChoice=${myChoice.toString()} rule is ${rule}`);
    }
    if (myChoice === theirChoice) return 3 + rule.score;
    if (rule.defeats === theirChoice) return 6 + rule.score;
