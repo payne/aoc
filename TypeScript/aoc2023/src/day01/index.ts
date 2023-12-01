@@ -63,6 +63,7 @@ function wordsToDigits(line: string) {
           console.log(`found ${word} at location ${p} in "${newLine}"`);
           newLine = newLine.replace(word, digit);
           console.log(`\tnewLine=${newLine}`);
+          return newLine;
         }
       });
   }
