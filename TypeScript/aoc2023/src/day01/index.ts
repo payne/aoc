@@ -32,7 +32,7 @@ export function firstAndLastDigit(s: string): number {
     .map((c) => c.charCodeAt(0) - zeroCharCode);
   let answer = digits[0] * 10;
   if (digits.length > 1) {
-    answer += digits[digits.length-1];
+    answer += digits[digits.length - 1];
   } else {
     answer += digits[0];
   }
@@ -40,20 +40,32 @@ export function firstAndLastDigit(s: string): number {
   return answer;
 }
 
-const digitNames:{[key:string]:number}={ "one":1, "two":2, "three":3, "four":4, "five":5, "six":6, "seven":7, "eight":8, "nine":9}
+const digitNames: { [key: string]: number } = {
+  one: 1,
+  two: 2,
+  three: 3,
+  four: 4,
+  five: 5,
+  six: 6,
+  seven: 7,
+  eight: 8,
+  nine: 9,
+};
 
 function wordsToDigits(line: string) {
-  let newLine=line;
-  for (let p=0; p < newLine.length; p++) {
-    Object.keys(digitNames).reverse().forEach(word => {
-    const digit = digitNames[word] + "";
-    if (p === newLine.indexOf(word)) {
-      console.log(`found ${word} at location ${p} in "${newLine}"`)
-      newLine= newLine.replace(word, digit);
-      console.log(`\tnewLine=${newLine}`);
-    }
-  })
-  }  
+  let newLine = line;
+  for (let p = 0; p < newLine.length; p++) {
+    Object.keys(digitNames)
+      .reverse()
+      .forEach((word) => {
+        const digit = digitNames[word] + "";
+        if (p === newLine.indexOf(word)) {
+          console.log(`found ${word} at location ${p} in "${newLine}"`);
+          newLine = newLine.replace(word, digit);
+          console.log(`\tnewLine=${newLine}`);
+        }
+      });
+  }
   return newLine;
 }
 
@@ -85,4 +97,3 @@ run({
   trimTestInputs: true,
   onlyTests: false,
 });
-
