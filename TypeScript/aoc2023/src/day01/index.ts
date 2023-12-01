@@ -14,8 +14,16 @@ const part2 = (rawInput: string) => {
   return;
 };
 
+const zeroCharCode = '0'.charCodeAt(0);
 export function firstAndLastDigit(s: string): number {
-  return 38;
+  const digits: number[] = s.split('').filter(c => isDigit(c)).map(c => c.charCodeAt(0)-zeroCharCode);
+  return digits[0]*10+digits[1];
+}
+
+function isDigit(c:string) {
+  const ascii = c.charCodeAt(0);
+  const n = ascii - zeroCharCode;
+  return (n >=0 && n <= 9);
 }
 
 run({
