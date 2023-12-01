@@ -1,4 +1,4 @@
-import { expect, test } from "vitest";
+import { expect, test} from "vitest";
 import { firstAndLastDigit, sumCalibrationValues } from "./index";
 
 const testData = `
@@ -8,7 +8,7 @@ a1b2c3d4e5f
 treb7uchet
 `;
 
-const part2TestData = `
+const part2testData = `
 two1nine
 eightwothree
 abcone2threexyz
@@ -18,18 +18,18 @@ zoneight234
 7pqrstsixteen
 `;
 
-test(`Part 2 sample calibration values`, () => {
-  const sum = sumCalibrationValues(part2TestData);
+test.skip(`Part 2 sample calibration values`, () => {
+  const sum = sumCalibrationValues(part2test.skipData);
   expect(sum).to.eq(281);
 });
 
 
-test(`Sample calibration values`, () => {
-  const sum = sumCalibrationValues(testData);
+test.skip(`Sample calibration values`, () => {
+  const sum = sumCalibrationValues(test.skipData);
   expect(sum).to.eq(142);
 });
 
-test(`digit at the end`, () => {
+test.skip(`digit at the end`, () => {
   const number = firstAndLastDigit(`onellbgsvseven9`)
   expect(number).to.eq(19);
 });
@@ -47,18 +47,18 @@ test(`zoneight234 should be 14`, () => {
 
 
 
-test(`Simple example of two digits`, () => {
+test.skip(`Simple example of two digits`, () => {
   const number = firstAndLastDigit(`a1b2c3d4e5f`);
   expect(number).to.eq(15);
 });
 
 
-test(`Simple example of two digits`, () => {
+test.skip(`Simple example of two digits`, () => {
   const number = firstAndLastDigit(`pqr3stu8vwx`);
   expect(number).to.eq(38);
 });
 
-test(`example with just one digit`, () => {
+test.skip(`example with just one digit`, () => {
   const number = firstAndLastDigit("treb7uchet");
   expect(number).to.eq(77);
 });

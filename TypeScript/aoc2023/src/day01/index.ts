@@ -42,12 +42,19 @@ export function firstAndLastDigit(s: string): number {
 
 const digitNames:{[key:string]:number}={ "one":1, "two":2, "three":3, "four":4, "five":5, "six":6, "seven":7, "eight":8, "nine":9}
 
-function wordsToDigits(line: string): string {
-  Object.keys(digitNames).reverse().forEach(w => {
-    const v = digitNames[w] + "";
-    line = line.replace(w,v);
+function wordsToDigits(line: string) {
+  let newLine=line;
+  for (let p=0; p < newLine.length; p++) {
+    Object.keys(digitNames).reverse().forEach(word => {
+    const digit = digitNames[word] + "";
+    if (p === newLine.indexOf(word)) {
+      console.log(`found ${word} at location ${p} in "${newLine}"`)
+      newLine= newLine.replace(word, digit);
+      console.log(`\tnewLine=${newLine}`);
+    }
   })
-  return line;
+  }  
+  return newLine;
 }
 
 function isDigit(c: string) {
@@ -78,3 +85,4 @@ run({
   trimTestInputs: true,
   onlyTests: false,
 });
+
