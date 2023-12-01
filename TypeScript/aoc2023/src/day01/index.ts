@@ -14,20 +14,34 @@ const part2 = (rawInput: string) => {
   return;
 };
 
-const zeroCharCode = '0'.charCodeAt(0);
+export function sumCalibrationValues(input: string) {
+  const lines = input.split("\n");
+  console.log(lines);
+  const sum = lines.reduce((total, line) => total + firstAndLastDigit(line), 0);
+  return sum;
+}
+
+const zeroCharCode = "0".charCodeAt(0);
 export function firstAndLastDigit(s: string): number {
-  const digits: number[] = s.split('').filter(c => isDigit(c)).map(c => c.charCodeAt(0)-zeroCharCode);
-  let answer = digits[0]*10
-  if (digits.length > 1) 
-  answer += digits[1];
-  else answer += digits[0];
+  if (s.length == 0) return 0;
+  const digits: number[] = s
+    .split("")
+    .filter((c) => isDigit(c))
+    .map((c) => c.charCodeAt(0) - zeroCharCode);
+  let answer = digits[0] * 10;
+  if (digits.length > 1) {
+    answer += digits[1];
+  } else {
+    answer += digits[0];
+  }
+  console.log(`answer=${answer} s="${s}"`);
   return answer;
 }
 
-function isDigit(c:string) {
+function isDigit(c: string) {
   const ascii = c.charCodeAt(0);
   const n = ascii - zeroCharCode;
-  return (n >=0 && n <= 9);
+  return n >= 0 && n <= 9;
 }
 
 run({
