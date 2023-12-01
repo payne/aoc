@@ -17,7 +17,11 @@ const part2 = (rawInput: string) => {
 const zeroCharCode = '0'.charCodeAt(0);
 export function firstAndLastDigit(s: string): number {
   const digits: number[] = s.split('').filter(c => isDigit(c)).map(c => c.charCodeAt(0)-zeroCharCode);
-  return digits[0]*10+digits[1];
+  let answer = digits[0]*10
+  if (digits.length > 1) 
+  answer += digits[1];
+  else answer += digits[0];
+  return answer;
 }
 
 function isDigit(c:string) {

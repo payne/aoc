@@ -13,3 +13,10 @@ test(`Simple example of two digits`,() => {
     const number = firstAndLastDigit(`pqr3stu8vwx`);
     expect(number).to.eq(38);
 })
+
+test(`example with just one digit`,() => {
+    const number = firstAndLastDigit('treb7uchet');
+    expect(number).to.eq(77);
+})
+
+
