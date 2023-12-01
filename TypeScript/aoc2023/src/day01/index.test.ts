@@ -13,6 +13,11 @@ test(`Sample calibration values`, () => {
   expect(sum).to.eq(142);
 });
 
+test(`digit at the end`, () => {
+  const number = firstAndLastDigit(`onellbgsvseven9`)
+  expect(number).to.eq(99);
+});
+
 test(`Simple example of two digits`, () => {
   const number = firstAndLastDigit(`a1b2c3d4e5f`)
   expect(number).to.eq(15);

@@ -6,11 +6,11 @@
     {
       "part1": {
         "solved": false,
-        "result": "0",
+        "result": "55017",
         "attempts": [
           "0"
         ],
-        "time": 4.012634
+        "time": 44.852048
       },
       "part2": {
         "solved": false,
