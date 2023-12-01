@@ -14,6 +14,10 @@ const part2 = (rawInput: string) => {
   return;
 };
 
+export function firstAndLastDigit(s: string): number {
+  return 38;
+}
+
 run({
   part1: {
     tests: [

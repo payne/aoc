@@ -6,6 +6,7 @@
   "scripts": {
     "start": "aocrunner day",
     "build": "aocrunner build",
+    "test": "vitest",
     "format": "prettier -w src",
     "update:readme": "aocrunner update:readme"
   },
@@ -17,6 +18,7 @@
   "devDependencies": {
     "@types/node": "^16.11.6",
     "aocrunner": "^1.9.6",
+    "vitest": "^0.34.6",
     "prettier": "^2.8.0"
   },
   "dependencies": {},
