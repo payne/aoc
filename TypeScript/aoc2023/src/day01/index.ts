@@ -30,7 +30,7 @@ export function firstAndLastDigit(s: string): number {
     .map((c) => c.charCodeAt(0) - zeroCharCode);
   let answer = digits[0] * 10;
   if (digits.length > 1) {
-    answer += digits[1];
+    answer += digits[digits.length-1];
   } else {
     answer += digits[0];
   }
