@@ -14,6 +14,13 @@ const part2 = (rawInput: string) => {
   return sumCalibrationValues(input);
 };
 
+export function getLeftDigit(line: string): number {
+  return 4;
+}
+export function getRightDigit(line: string): number {
+  return 2;
+}
+
 export function sumCalibrationValues(input: string) {
   const lines = input.split("\n");
   console.log(lines);

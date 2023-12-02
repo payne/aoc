@@ -1,5 +1,5 @@
 import { expect, test } from "vitest";
-import { firstAndLastDigit, sumCalibrationValues } from "./index";
+import { getLeftDigit, getRightDigit, firstAndLastDigit, sumCalibrationValues } from "./index";
 
 const testData = `
 1abc2
@@ -17,6 +17,14 @@ xtwone3four
 zoneight234
 7pqrstsixteen
 `;
+
+
+test(`get left digit happy path`, () => {
+  expect(getLeftDigit(`xtwone3four`)).to.eq(4);
+})
+test(`get right digit happy path`, () => {
+  expect(getRightDigit(`xtwone3four`)).to.eq(2);
+})
 
 test(`Part 2 sample calibration values`, () => {
   const sum = sumCalibrationValues(part2testData);
