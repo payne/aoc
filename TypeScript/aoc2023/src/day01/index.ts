@@ -59,7 +59,7 @@ export function getRightDigit(line: string): number {
         leftSpot = location;
         value = representationToValue[token];
       }
-      console.log(`token=${token} leftSpot=${leftSpot} line="${line}" value=${value}`);
+      // console.log(`token=${token} leftSpot=${leftSpot} line="${line}" value=${value}`);
     }
   });
 
