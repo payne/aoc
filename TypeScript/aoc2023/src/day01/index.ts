@@ -18,13 +18,33 @@ const part2 = (rawInput: string) => {
 // plan is to search from left to right to get first digit (tens place)
 // plan is to search from right to left to get second digit (ones place)
 
-let representationToValue2: { [key: string]: number}={'0': 0, 'zero': 0};
-let representationToValue: { [key: string]: number}={};
-let key='0';
-representationToValue[key]=0;
+let representationToValue: { [key: string]: number}={'0': 0, 'zero': 0,
+'1':1, 'one': 1,
+  '2':2, 'two': 2,
+  '3':3, 'three': 3,
+  '4':4, 'four': 4,
+  '5':5, 'five': 5,
+  '6':6, 'six': 6,
+  '7':7, 'seven': 7,
+  '8':8, 'eight': 8,
+  '9':9, 'nine': 9,
+};
 
 export function getLeftDigit(line: string): number {
-  return 4;
+  let value = 0;
+  let leftSpot = line.length + 10; // way big for the first loop
+  Object.keys(representationToValue).forEach(token => {
+    const location = line.indexOf(token);
+    if (-1 != location) {
+      if (leftSpot>location) {
+        leftSpot = location;
+        value = representationToValue[token];
+      }
+      console.log(`token=${token} leftSpot=${leftSpot} line="${line}" value=${value}`);
+    }
+  });
+
+  return value;
 }
 export function getRightDigit(line: string): number {
   return 2;
