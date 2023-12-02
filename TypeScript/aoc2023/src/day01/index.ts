@@ -14,6 +14,15 @@ const part2 = (rawInput: string) => {
   return sumCalibrationValues(input);
 };
 
+// There are two different ways to represent a digit: "4" and "four"
+// plan is to search from left to right to get first digit (tens place)
+// plan is to search from right to left to get second digit (ones place)
+
+let representationToValue2: { [key: string]: number}={'0': 0, 'zero': 0};
+let representationToValue: { [key: string]: number}={};
+let key='0';
+representationToValue[key]=0;
+
 export function getLeftDigit(line: string): number {
   return 4;
 }
