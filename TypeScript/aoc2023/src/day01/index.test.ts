@@ -41,7 +41,7 @@ test.skip(`Sample calibration values`, () => {
   expect(sum).to.eq(142);
 });
 
-test.skip(`digit at the end`, () => {
+test(`digit at the end`, () => {
   const number = firstAndLastDigit(`onellbgsvseven9`);
   expect(number).to.eq(19);
 });

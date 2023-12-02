@@ -76,20 +76,9 @@ export function sumCalibrationValues(input: string) {
 const zeroCharCode = "0".charCodeAt(0);
 export function firstAndLastDigit(s: string): number {
   if (s.length == 0) return 0;
-  const origS = s;
-  s = wordsToDigits(s);
-  const digits: number[] = s
-    .split("")
-    .filter((c) => isDigit(c))
-    .map((c) => c.charCodeAt(0) - zeroCharCode);
-  let answer = digits[0] * 10;
-  if (digits.length > 1) {
-    answer += digits[digits.length - 1];
-  } else {
-    answer += digits[0];
-  }
-  console.log(`answer=${answer} s="${s}" origS="${origS}"`);
-  return answer;
+  const leftDigit = getLeftDigit(s);
+  const rightDigit = getRightDigit(s);
+ return leftDigit * 10 + rightDigit;
 }
 
 const digitNames: { [key: string]: number } = {
