@@ -68,53 +68,16 @@ export function getRightDigit(line: string): number {
 
 export function sumCalibrationValues(input: string) {
   const lines = input.split("\n");
-  console.log(lines);
+  // console.log(lines);
   const sum = lines.reduce((total, line) => total + firstAndLastDigit(line), 0);
   return sum;
 }
 
-const zeroCharCode = "0".charCodeAt(0);
 export function firstAndLastDigit(s: string): number {
   if (s.length == 0) return 0;
   const leftDigit = getLeftDigit(s);
   const rightDigit = getRightDigit(s);
  return leftDigit * 10 + rightDigit;
-}
-
-const digitNames: { [key: string]: number } = {
-  one: 1,
-  two: 2,
-  three: 3,
-  four: 4,
-  five: 5,
-  six: 6,
-  seven: 7,
-  eight: 8,
-  nine: 9,
-};
-
-function wordsToDigits(line: string) {
-  let newLine = line;
-  for (let p = 0; p < newLine.length; p++) {
-    Object.keys(digitNames)
-      .reverse()
-      .forEach((word) => {
-        const digit = digitNames[word] + "";
-        if (p === newLine.indexOf(word)) {
-          console.log(`found ${word} at location ${p} in "${newLine}"`);
-          newLine = newLine.replace(word, digit);
-          console.log(`\tnewLine=${newLine}`);
-          return newLine;
-        }
-      });
-  }
-  return newLine;
-}
-
-function isDigit(c: string) {
-  const ascii = c.charCodeAt(0);
-  const n = ascii - zeroCharCode;
-  return n >= 0 && n <= 9;
 }
 
 run({
