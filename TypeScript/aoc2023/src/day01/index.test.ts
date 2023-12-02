@@ -31,6 +31,18 @@ test(`get right digit happy path`, () => {
   expect(getRightDigit(`4nineeightseven2`)).to.eq(2)
 })
 
+test(`5ffour295 should be 55`, () => {
+  const line = '5ffour295';
+  expect(getRightDigit(line)).to.eq(5);
+  expect(getLeftDigit(line)).to.eq(5);
+  expect(firstAndLastDigit(line)).to.eq(55);
+});
+
+test(`m9qvkqlgfhtwo3seven4seven should be 97`, () => {
+  const line = 'm9qvkqlgfhtwo3seven4seven';
+  expect(getLeftDigit(line)).to.eq(9);
+  expect(getRightDigit(line)).to.eq(7);
+});
 test(`Part 2 sample calibration values`, () => {
   const sum = sumCalibrationValues(part2testData);
   expect(sum).to.eq(281);
