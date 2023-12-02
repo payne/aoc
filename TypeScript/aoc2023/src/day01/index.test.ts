@@ -24,8 +24,11 @@ test(`get left digit happy path`, () => {
   expect(getLeftDigit(`two1nine`)).to.eq(2);
   expect(getLeftDigit(`4nineeightseven2`)).to.eq(4)
 })
-test.skip(`get right digit happy path`, () => {
-  expect(getRightDigit(`xtwone3four`)).to.eq(2);
+
+test(`get right digit happy path`, () => {
+  expect(getRightDigit(`xtwone3four`)).to.eq(4);
+  expect(getRightDigit(`two1nine`)).to.eq(9);
+  expect(getRightDigit(`4nineeightseven2`)).to.eq(2)
 })
 
 test.skip(`Part 2 sample calibration values`, () => {

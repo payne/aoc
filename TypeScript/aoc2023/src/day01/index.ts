@@ -31,6 +31,7 @@ let representationToValue: { [key: string]: number}={'0': 0, 'zero': 0,
 };
 
 export function getLeftDigit(line: string): number {
+  // TODO: Learn how to pass a comparision function make this generic
   let value = 0;
   let leftSpot = line.length + 10; // way big for the first loop
   Object.keys(representationToValue).forEach(token => {
@@ -46,8 +47,23 @@ export function getLeftDigit(line: string): number {
 
   return value;
 }
+
 export function getRightDigit(line: string): number {
-  return 2;
+  // TODO: Learn how to pass a comparision function make this generic
+  let value = 0;
+  let leftSpot = -1; // way too small
+  Object.keys(representationToValue).forEach(token => {
+    const location = line.indexOf(token);
+    if (-1 != location) {
+      if (leftSpot < location) {
+        leftSpot = location;
+        value = representationToValue[token];
+      }
+      console.log(`token=${token} leftSpot=${leftSpot} line="${line}" value=${value}`);
+    }
+  });
+
+  return value;
 }
 
 export function sumCalibrationValues(input: string) {
