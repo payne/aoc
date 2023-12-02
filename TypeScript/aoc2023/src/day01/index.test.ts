@@ -31,12 +31,12 @@ test(`get right digit happy path`, () => {
   expect(getRightDigit(`4nineeightseven2`)).to.eq(2)
 })
 
-test.skip(`Part 2 sample calibration values`, () => {
+test(`Part 2 sample calibration values`, () => {
   const sum = sumCalibrationValues(part2testData);
   expect(sum).to.eq(281);
 });
 
-test.skip(`Sample calibration values`, () => {
+test(`Sample calibration values`, () => {
   const sum = sumCalibrationValues(testData);
   expect(sum).to.eq(142);
 });
@@ -46,27 +46,27 @@ test(`digit at the end`, () => {
   expect(number).to.eq(19);
 });
 
-test.skip(`eightwothree should be 83`, () => {
+test(`eightwothree should be 83`, () => {
   const number = firstAndLastDigit(`eightwothree`);
   expect(number).to.eq(83);
 });
 
-test.skip(`zoneight234 should be 14`, () => {
+test(`zoneight234 should be 14`, () => {
   const number = firstAndLastDigit(`zoneight234`);
   expect(number).to.eq(14);
 });
 
-test.skip(`Simple example of two digits`, () => {
+test(`Simple example of two digits`, () => {
   const number = firstAndLastDigit(`a1b2c3d4e5f`);
   expect(number).to.eq(15);
 });
 
-test.skip(`Simple example of two digits`, () => {
+test(`Simple example of two digits`, () => {
   const number = firstAndLastDigit(`pqr3stu8vwx`);
   expect(number).to.eq(38);
 });
 
-test.skip(`example with just one digit`, () => {
+test(`example with just one digit`, () => {
   const number = firstAndLastDigit("treb7uchet");
   expect(number).to.eq(77);
 });
