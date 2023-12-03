@@ -14,18 +14,21 @@ const part2 = (rawInput: string) => {
   return;
 };
 
-export function get(grid: string[], x: number, y:numer) {
-  return grid[y].substring(x,x+1);
+export function get(grid: string[], x: number, y: numer) {
+  return grid[y].substring(x, x + 1);
 }
 
 export function readGrid(input: string): string[] {
-  const grid = input.trim().split('\n').map(l => l.trim());
+  const grid = input
+    .trim()
+    .split("\n")
+    .map((l) => l.trim());
   return grid;
 }
 
-const zeroAscii = '0'.charCodeAt(0);
+const zeroAscii = "0".charCodeAt(0);
 export function isDigit(s: string) {
- return s.charCodeAt(0) >= zeroAscii && s.charCodeAt(0) <= zeroAscii+10;
+  return s.charCodeAt(0) >= zeroAscii && s.charCodeAt(0) <= zeroAscii + 10;
 }
 
 run({
