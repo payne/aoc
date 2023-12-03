@@ -14,6 +14,11 @@ const part2 = (rawInput: string) => {
   return;
 };
 
+export function getNumbers(input: string): number[] {
+  return input.replace(/\D/g,' ').trim().split(' ').filter(s => s.length > 0)
+    .map(s => 1*s);
+}
+
 export function isSymbol(c: string): boolean {
   if (c === undefined) return false;
   if (isDigit(c)) return false;
