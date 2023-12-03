@@ -15,11 +15,15 @@ const part2 = (rawInput: string) => {
 };
 
 export function isSymbol(c: string): boolean {
-  return false;
+  if (c === undefined) return false;
+  if (isDigit(c)) return false;
+  if (c === '.') return false;
 }
 
 export function get(grid: string[], x: number, y: numer) {
   if (x < 0 || y < 0) return undefined;
+  if (x >= grid[0].length) return undefined;
+  if (y >= grid.length) return undefined;
   return grid[y].substring(x, x + 1);
 }
 

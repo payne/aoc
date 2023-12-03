@@ -16,11 +16,16 @@ const exampleData = `
 
 test(`isSymbol is handy`, () => {
   expect(isSymbol('9')).to.eq(false);
+  expect(isSymbol('.')).to.eq(false);
+  expect(isSymbol(undefined)).to.eq(false);
 });
 
 test(`get x,y should return undefined sometimes`, () => {
   const grid = readGrid(exampleData);
   expect(get(grid, -1, 0)).to.eq(undefined);
+  expect(get(grid, 0, -1)).to.eq(undefined);
+  expect(get(grid, 20, 11)).to.eq(undefined);
+  expect(get(grid, 10, 10)).to.eq(undefined);
 });
 
 test(`get string at x,y`, () => {
