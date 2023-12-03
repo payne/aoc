@@ -14,6 +14,10 @@ const part2 = (rawInput: string) => {
   return;
 };
 
+export function isPartNumber(n: number): boolean {
+  return true;
+}
+
 export function getNumbers(input: string): number[] {
   return input.replace(/\D/g,' ').trim().split(' ').filter(s => s.length > 0)
     .map(s => 1*s);

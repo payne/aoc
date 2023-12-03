@@ -1,5 +1,5 @@
 import { expect, test } from "vitest";
-import { readGrid, isDigit, get, isSymbol, getNumbers } from "./index";
+import { readGrid, isDigit, get, isSymbol, getNumbers, isPartNumber } from "./index";
 
 const exampleData = `
 467..114..
@@ -13,6 +13,10 @@ const exampleData = `
 ...$.*....
 .664.598..
 `;
+
+test(`isPartNumber works`, () => {
+  expect(isPartNumber(467)).to.eq(true);
+})
 
 test(`get numbers from input`, () => {
   const numbers = getNumbers(exampleData);
