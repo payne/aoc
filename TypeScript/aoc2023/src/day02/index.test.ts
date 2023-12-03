@@ -1,5 +1,13 @@
 import { expect, test } from "vitest";
-import { Balls, countBalls, possible, totalPossibleGames, minBalls, minBallsPower, totalMinBalls } from "./index";
+import {
+  Balls,
+  countBalls,
+  possible,
+  totalPossibleGames,
+  minBalls,
+  minBallsPower,
+  totalMinBalls,
+} from "./index";
 
 const exampleData = `
 Game 1: 3 blue, 4 red; 1 red, 2 green, 6 blue; 2 green
@@ -53,5 +61,3 @@ test(`game 1 example with three reveals`, () => {
   expect(balls[2].red).to.eq(0);
   expect(balls[2].green).to.eq(2);
 });
-
-

@@ -25,10 +25,13 @@ const bagContents = { blue: 14, red: 12, green: 13 };
 export function totalPossibleGames(input: string): number {
   // Don't know how to get an index from reduce (& too lazy to lookup)
   let total = 0;
-  input.trim().split('\n').forEach( (line, index) => {
-    console.log(`${index}: ${line}`);
-    if (possible(line)) total += (index+1);
-  });
+  input
+    .trim()
+    .split("\n")
+    .forEach((line, index) => {
+      console.log(`${index}: ${line}`);
+      if (possible(line)) total += index + 1;
+    });
   return total;
 }
 
@@ -36,16 +39,19 @@ export function possible(gameLine: string) {
   const balls = countBalls(gameLine); // sorta violates SRP
   const isPossible = balls.reduce((acc, g) => {
     const bc = bagContents;
-    return acc && (bc.blue >= g.blue && bc.red >= g.red && bc.green >= g.green);
+    return acc && bc.blue >= g.blue && bc.red >= g.red && bc.green >= g.green;
   }, true);
   console.log(`isPossible=${isPossible}`);
   return isPossible;
 }
 
 export function totalMinBalls(input: string): number {
-  return input.trim().split('\n').reduce( (acc, line) => {
-   return acc + minBallsPower(line); 
-  }, 0);
+  return input
+    .trim()
+    .split("\n")
+    .reduce((acc, line) => {
+      return acc + minBallsPower(line);
+    }, 0);
 }
 
 export function minBallsPower(line: string): number {
@@ -55,13 +61,16 @@ export function minBallsPower(line: string): number {
 
 export function minBalls(line: string): Balls {
   const balls = countBalls(line);
-  return balls.reduce( (a, b) => {
-    console.log(`a=${a} b=${b}`);
-    a.blue = a.blue < b.blue ? b.blue : a.blue;
-    a.red = a.red < b.red ? b.red : a.red;
-    a.green = a.green < b.green ? b.green : a.green;
-    return a;
-  }, {blue: 0, red: 0, green: 0});
+  return balls.reduce(
+    (a, b) => {
+      console.log(`a=${a} b=${b}`);
+      a.blue = a.blue < b.blue ? b.blue : a.blue;
+      a.red = a.red < b.red ? b.red : a.red;
+      a.green = a.green < b.green ? b.green : a.green;
+      return a;
+    },
+    { blue: 0, red: 0, green: 0 },
+  );
 }
 
 export function countBalls(line: string): Balls[] {
