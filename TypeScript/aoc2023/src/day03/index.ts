@@ -15,6 +15,7 @@ const part2 = (rawInput: string) => {
 };
 
 export function get(grid: string[], x: number, y: numer) {
+  if (x < 0 || y < 0) return undefined;
   return grid[y].substring(x, x + 1);
 }
 

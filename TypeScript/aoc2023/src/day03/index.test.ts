@@ -14,6 +14,11 @@ const exampleData = `
 .664.598..
 `;
 
+test(`get x,y should return undefined sometimes`, () => {
+  const grid = readGrid(exampleData);
+  expect(get(grid, -1, 0)).to.eq(undefined);
+});
+
 test(`get string at x,y`, () => {
   const grid = readGrid(exampleData);
   expect(get(grid, 0, 0)).to.eq("4");
