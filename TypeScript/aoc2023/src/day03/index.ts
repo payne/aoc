@@ -19,6 +19,11 @@ export function readGrid(input: string): string[] {
   return grid;
 }
 
+const zeroAscii = '0'.charCodeAt(0);
+export function isDigit(s: string) {
+ return s.charCodeAt(0) >= zeroAscii && s.charCodeAt(0) <= zeroAscii+10;
+}
+
 run({
   part1: {
     tests: [
