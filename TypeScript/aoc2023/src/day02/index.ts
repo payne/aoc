@@ -20,6 +20,28 @@ export interface Balls {
   green: number;
 }
 
+const bagContents = { blue: 14, red: 12, green: 13 };
+
+export function totalPossibleGames(input: string): number {
+  // Don't know how to get an index from reduce (& too lazy to lookup)
+  let total = 0;
+  input.trim().split('\n').forEach( (line, index) => {
+    console.log(`${index}: ${line}`);
+    if (possible(line)) total += (index+1);
+  });
+  return total;
+}
+
+export function possible(gameLine: string) {
+  const balls = countBalls(gameLine); // sorta violates SRP
+  const isPossible = balls.reduce((acc, g) => {
+    const bc = bagContents;
+    return acc && (bc.blue >= g.blue && bc.red >= g.red && bc.green >= g.green);
+  }, true);
+  console.log(`isPossible=${isPossible}`);
+  return isPossible;
+}
+
 export function countBalls(line: string): Balls[] {
   const reveals = line.substring(line.indexOf(":") + 1).split(";");
   // console.log(reveals);
