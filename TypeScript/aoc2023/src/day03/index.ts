@@ -14,6 +14,11 @@ const part2 = (rawInput: string) => {
   return;
 };
 
+export function readGrid(input: string): string[] {
+  const grid = input.trim().split('\n').map(l => l.trim());
+  return grid;
+}
+
 run({
   part1: {
     tests: [
