@@ -1,5 +1,5 @@
 import { expect, test } from "vitest";
-import { readGrid, isDigit, get } from "./index";
+import { readGrid, isDigit, get, isSymbol } from "./index";
 
 const exampleData = `
 467..114..
@@ -13,6 +13,10 @@ const exampleData = `
 ...$.*....
 .664.598..
 `;
+
+test(`isSymbol is handy`, () => {
+  expect(isSymbol('9')).to.eq(false);
+});
 
 test(`get x,y should return undefined sometimes`, () => {
   const grid = readGrid(exampleData);
