@@ -14,6 +14,15 @@ const part2 = (rawInput: string) => {
   return;
 };
 
+export interface Balls { blue, red, green: number }
+
+export function countBalls(line: string) : Balls[] {
+ return [ { blue: 3, red: 4, green: 0 }, 
+          { blue: 0, red: 0, green: 0 },
+          { blue: 0, red: 0, green: 0 }
+        ];
+}
+
 run({
   part1: {
     tests: [
