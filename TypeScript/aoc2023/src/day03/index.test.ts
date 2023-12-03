@@ -1,5 +1,5 @@
 import { expect, test } from "vitest";
-import { readGrid, isDigit } from "./index";
+import { readGrid, isDigit, get } from "./index";
 
 const exampleData = `
 467..114..
@@ -13,6 +13,14 @@ const exampleData = `
 ...$.*....
 .664.598..
 `;
+
+test(`get string at x,y`, () => {
+  const grid = readGrid(exampleData)
+  expect(get(grid, 0,0)).to.eq('4');
+  expect(get(grid, 1,0)).to.eq('6');
+  expect(get(grid, 2,2)).to.eq('3');
+});
+
 
 test(`read the grid`, () => {
   const grid = readGrid(exampleData)
