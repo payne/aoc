@@ -14,15 +14,19 @@ const part2 = (rawInput: string) => {
   return;
 };
 
-export interface Balls { blue, red, green: number }
+export interface Balls {
+  blue;
+  red;
+  green: number;
+}
 
-export function countBalls(line: string) : Balls[] {
- const reveals = line.substring(line.indexOf(':')+1).split(';')
- console.log(reveals);
- const balls = reveals.map(r => normalizeReveal(r));
- console.log(balls);
- return balls;
- /*
+export function countBalls(line: string): Balls[] {
+  const reveals = line.substring(line.indexOf(":") + 1).split(";");
+  // console.log(reveals);
+  const balls = reveals.map((r) => normalizeReveal(r));
+  // console.log(balls);
+  return balls;
+  /* the balls array looks like: 
  return [ { blue: 3, red: 4, green: 0 }, 
           { blue: 0, red: 0, green: 0 },
           { blue: 0, red: 0, green: 0 }
@@ -31,12 +35,12 @@ export function countBalls(line: string) : Balls[] {
 }
 function normalizeReveal(reveal: string): Ball {
   // reveal is like:
-  // ' 3 blue, 4 red' 
-  const pairs = reveal.trim().split(',');
-         const ball: Ball= { blue: 0, red: 0, green: 0 };
-  pairs.forEach(p => {
-    const [numStr, color] = p.trim().split(' ')
-    ball[color] = 1*numStr;
+  // ' 3 blue, 4 red'
+  const pairs = reveal.trim().split(",");
+  const ball: Ball = { blue: 0, red: 0, green: 0 };
+  pairs.forEach((p) => {
+    const [numStr, color] = p.trim().split(" ");
+    ball[color] = 1 * numStr;
   });
   return ball;
 }

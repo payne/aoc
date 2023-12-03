@@ -18,23 +18,34 @@ const part2 = (rawInput: string) => {
 // plan is to search from left to right to get first digit (tens place)
 // plan is to search from right to left to get second digit (ones place)
 
-let representationToValue: { [key: string]: number}={'0': 0, 'zero': 0,
-'1':1, 'one': 1,
-  '2':2, 'two': 2,
-  '3':3, 'three': 3,
-  '4':4, 'four': 4,
-  '5':5, 'five': 5,
-  '6':6, 'six': 6,
-  '7':7, 'seven': 7,
-  '8':8, 'eight': 8,
-  '9':9, 'nine': 9,
+let representationToValue: { [key: string]: number } = {
+  "0": 0,
+  zero: 0,
+  "1": 1,
+  one: 1,
+  "2": 2,
+  two: 2,
+  "3": 3,
+  three: 3,
+  "4": 4,
+  four: 4,
+  "5": 5,
+  five: 5,
+  "6": 6,
+  six: 6,
+  "7": 7,
+  seven: 7,
+  "8": 8,
+  eight: 8,
+  "9": 9,
+  nine: 9,
 };
 
 export function getRightDigit(line: string): number {
   // TODO: Learn how to pass a comparision function make this generic
   let value = 0;
   let leftSpot = -10; // out of bounds
-  Object.keys(representationToValue).forEach(token => {
+  Object.keys(representationToValue).forEach((token) => {
     const location = line.lastIndexOf(token);
     if (-1 != location) {
       if (leftSpot < location) {
@@ -52,7 +63,7 @@ export function getLeftDigit(line: string): number {
   // TODO: Learn how to pass a comparison function make this generic
   let value = 0;
   let leftSpot = line.length + 10; // out of bounds
-  Object.keys(representationToValue).forEach(token => {
+  Object.keys(representationToValue).forEach((token) => {
     const location = line.indexOf(token); // third thing that varies
     if (-1 != location) {
       if (leftSpot > location) {
@@ -77,7 +88,7 @@ export function firstAndLastDigit(s: string): number {
   if (s.length == 0) return 0;
   const leftDigit = getLeftDigit(s);
   const rightDigit = getRightDigit(s);
- return leftDigit * 10 + rightDigit;
+  return leftDigit * 10 + rightDigit;
 }
 
 run({
