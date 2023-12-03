@@ -42,6 +42,17 @@ export function possible(gameLine: string) {
   return isPossible;
 }
 
+export function totalMinBalls(input: string): number {
+  return input.trim().split('\n').reduce( (acc, line) => {
+   return acc + minBallsPower(line); 
+  }, 0);
+}
+
+export function minBallsPower(line: string): number {
+  const m = minBalls(line);
+  return m.blue * m.red * m.green;
+}
+
 export function minBalls(line: string): Balls {
   const balls = countBalls(line);
   return balls.reduce( (a, b) => {
