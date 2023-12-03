@@ -42,6 +42,17 @@ export function possible(gameLine: string) {
   return isPossible;
 }
 
+export function minBalls(line: string): Balls {
+  const balls = countBalls(line);
+  return balls.reduce( (a, b) => {
+    console.log(`a=${a} b=${b}`);
+    a.blue = a.blue < b.blue ? b.blue : a.blue;
+    a.red = a.red < b.red ? b.red : a.red;
+    a.green = a.green < b.green ? b.green : a.green;
+    return a;
+  }, {blue: 0, red: 0, green: 0});
+}
+
 export function countBalls(line: string): Balls[] {
   const reveals = line.substring(line.indexOf(":") + 1).split(";");
   // console.log(reveals);

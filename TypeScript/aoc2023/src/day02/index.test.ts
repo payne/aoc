@@ -1,5 +1,5 @@
 import { expect, test } from "vitest";
-import { Balls, countBalls, possible, totalPossibleGames } from "./index";
+import { Balls, countBalls, possible, totalPossibleGames, minBalls } from "./index";
 
 const exampleData = `
 Game 1: 3 blue, 4 red; 1 red, 2 green, 6 blue; 2 green
@@ -9,7 +9,16 @@ Game 4: 1 green, 3 red, 6 blue; 3 green, 6 red; 3 green, 15 blue, 14 red
 Game 5: 6 red, 1 blue, 3 green; 2 blue, 1 red, 2 green
 `;
 
-test(`Sample games score 8`, () => {
+test(`Part 2 - minimum number of balls`, () => {
+  const gameLine1 = `Game 1: 3 blue, 4 red; 1 red, 2 green, 6 blue; 2 green`;
+  const answer = { blue: 6, red: 4, green: 2 };
+  const m = minBalls(gameLine1);
+  expect(m.blue).to.eq(answer.blue);
+  expect(m.red).to.eq(answer.red);
+  expect(m.green).to.eq(answer.green);
+});
+
+test(`Part 1 Sample games score 8`, () => {
   expect(totalPossibleGames(exampleData)).to.eq(8);
 });
 
