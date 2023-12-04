@@ -14,13 +14,19 @@ const part2 = (rawInput: string) => {
   return;
 };
 
+export function sumPartNumbers(input: string): number {
+  const grid = readGrid(input);
+  return getNumbers(input)
+    .reduce( (acc, n) =>  (isPartNumber(grid, n)) ? acc+n : acc, 0);
+}
+
 export function isPartNumber(grid: string[], n: number): boolean {
   const nstr = "" + n;
   for (let y=0; y < grid.length; y++) {
     const x = grid[y].indexOf(nstr);
     if (-1 != x) {
       const s = isSymbolAdjacent(grid, nstr, x, y);
-      console.log(`isPartNumber returning ${s}`);
+      // console.log(`isPartNumber returning ${s}`);
       if (s) return true;
     }
   }
@@ -30,7 +36,7 @@ export function isPartNumber(grid: string[], n: number): boolean {
 function check(grid, x, y): boolean {
     const c = get(grid, x, y);
     const s = isSymbol(c);
-    console.log(`grid(${x},${y})=${c} isSymbol=${s}`);
+    // console.log(`grid(${x},${y})=${c} isSymbol=${s}`);
     return s;
 }
 
@@ -49,9 +55,15 @@ export function isSymbolAdjacent(grid: string[], nstr: string, x: number, y: num
   if (check(grid, x+nstr.length, y)) return true;
 
   // right diagonal down
-  const s = check(grid, x+nstr.length, y+1);
-  console.log(`EXPECT THIS TO BE TRUE ${s}`);
+  // const s = check(grid, x+nstr.length, y+1);
+  // console.log(`EXPECT THIS TO BE TRUE ${s}`);
   if (check(grid, x+nstr.length, y+1)) return true;
+  // right diagonal up
+  if (check(grid, x+nstr.length, y-1)) return true;
+  // left diagonal down
+  if (check(grid, x-1, y+1)) return true;
+  // left diagonal up
+  if (check(grid, x-1, y-1)) return true;
 
   return false;
 }

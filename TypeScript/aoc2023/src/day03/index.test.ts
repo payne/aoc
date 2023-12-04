@@ -1,5 +1,5 @@
 import { expect, test } from "vitest";
-import { readGrid, isDigit, get, isSymbol, getNumbers, isPartNumber } from "./index";
+import { readGrid, isDigit, get, isSymbol, getNumbers, isPartNumber, sumPartNumbers } from "./index";
 
 const exampleData = `
 467..114..
@@ -14,9 +14,16 @@ const exampleData = `
 .664.598..
 `;
 
+test(`sum of partNumbers`, () => {
+  expect(sumPartNumbers(exampleData)).to.eq(4361);
+});
+
 test(`isPartNumber works`, () => {
   const grid = readGrid(exampleData);
   expect(isPartNumber(grid, 467)).to.eq(true);
+  expect(isPartNumber(grid, 35)).to.eq(true);
+  expect(isPartNumber(grid, 114)).to.eq(false);
+  expect(isPartNumber(grid, 58)).to.eq(false);
 })
 
 test(`get numbers from input`, () => {
