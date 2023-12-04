@@ -18,6 +18,17 @@ test(`sum of partNumbers`, () => {
   expect(sumPartNumbers(exampleData)).to.eq(4361);
 });
 
+test(`partNumber only counts once when there are multiple adjacent special characters`, () => {
+const manyAdjacentData = `
+..........
+.****.....
+.*35*.....
+.****.#...
+..........
+`;
+  expect(sumPartNumbers(manyAdjacentData)).to.eq(35);
+});
+
 test(`isPartNumber works`, () => {
   const grid = readGrid(exampleData);
   expect(isPartNumber(grid, 467)).to.eq(true);
