@@ -14,9 +14,19 @@ const part2 = (rawInput: string) => {
   return;
 };
 
-export function findGearRatios(grid: string[]): number[] {
+function calculateGearRatio(grid: string[], x: number, y: number) {
+}
 
- return [467*35];
+export function findGearRatios(grid: string[]): number[] {
+ const ratios = [];
+ for (let y=0; y < grid.length; y++) {
+   const x = grid[y].indexOf('*');
+   if (-1 != x) {
+     const ratio = calculateGearRatio(grid, x, y); // -1 if not a gear
+     if (-1 != ratio) ratios.push(ratio);
+   }
+ }
+ return ratios;
 }
 
 export function sumPartNumbers(input: string): number {
@@ -27,6 +37,7 @@ export function sumPartNumbers(input: string): number {
   );
 }
 
+/** find the x coordinate for number (nstr) */
 function findX(grid: string[], y: number, nstr: string): number {
   const x = grid[y].indexOf(nstr);
   if (-1 === x) return -1;
