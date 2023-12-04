@@ -18,6 +18,16 @@ test(`sum of partNumbers`, () => {
   expect(sumPartNumbers(exampleData)).to.eq(4361);
 });
 
+test(`sum of partNumber works with edges ok`, () => {
+const edgeData = `
+****
+*35*
+****
+`;
+  expect(sumPartNumbers(edgeData)).to.eq(35);
+
+});
+
 test(`partNumber only counts once when there are multiple adjacent special characters`, () => {
 const manyAdjacentData = `
 ..........

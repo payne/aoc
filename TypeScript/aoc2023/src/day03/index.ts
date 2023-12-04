@@ -41,7 +41,7 @@ function check(grid, x, y): boolean {
 }
 
 export function isSymbolAdjacent(grid: string[], nstr: string, x: number, y: number) {
-  console.log(`isSymbolAdjacent(grid, ${nstr}, ${x}, ${y}`);
+  // console.log(`isSymbolAdjacent(grid, ${nstr}, ${x}, ${y}`);
   // check up and down for each digit in nstr
   for (let xd=0; xd < nstr.length; xd++) {
     // output nstr locations:
