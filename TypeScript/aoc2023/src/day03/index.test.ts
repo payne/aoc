@@ -15,7 +15,8 @@ const exampleData = `
 `;
 
 test(`isPartNumber works`, () => {
-  expect(isPartNumber(467)).to.eq(true);
+  const grid = readGrid(exampleData);
+  expect(isPartNumber(grid, 467)).to.eq(true);
 })
 
 test(`get numbers from input`, () => {
