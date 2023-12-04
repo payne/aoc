@@ -20,10 +20,19 @@ export function sumPartNumbers(input: string): number {
     .reduce( (acc, n) =>  (isPartNumber(grid, n)) ? acc+n : acc, 0);
 }
 
+function findX(grid: string[], y: number, nstr: string):number {
+  const x = grid[y].indexOf(nstr);
+  if (-1 === x) return -1;
+  const left = get(grid, x-1, y);
+  const right = get(grid, x+nstr.length, y);
+  if ( isDigit(left) || isDigit(right) ) return -1;
+  return x;
+}
 export function isPartNumber(grid: string[], n: number): boolean {
   const nstr = "" + n;
   for (let y=0; y < grid.length; y++) {
-    const x = grid[y].indexOf(nstr);
+    // const x = grid[y].indexOf(nstr);
+    const x = findX(grid, y, nstr);
     if (-1 != x) {
       const s = isSymbolAdjacent(grid, nstr, x, y);
       // console.log(`isPartNumber returning ${s}`);
@@ -97,7 +106,7 @@ export function readGrid(input: string): string[] {
 
 const zeroAscii = "0".charCodeAt(0);
 export function isDigit(s: string) {
-  return s.charCodeAt(0) >= zeroAscii && s.charCodeAt(0) <= zeroAscii + 10;
+  return s !== undefined && s.charCodeAt(0) >= zeroAscii && s.charCodeAt(0) <= zeroAscii + 10;
 }
 
 run({
