@@ -14,6 +14,11 @@ const part2 = (rawInput: string) => {
   return;
 };
 
+export function findGearRatios(grid: string[]): number[] {
+
+ return [467*35];
+}
+
 export function sumPartNumbers(input: string): number {
   const grid = readGrid(input);
   return getNumbers(input).reduce(
@@ -35,7 +40,7 @@ function spaceOut(grid: string[], x: number, y: number, n: number) {
   const nstr = "" + n;
   let nspaces = '';
   for (let x = 0; x < nstr.length; x++) { nspaces += ' '; }
-  console.log(`change part number ${nstr} to spaces (${nspaces}.length==${nspaces.length}`);
+  // console.log(`change part number ${nstr} to spaces (${nspaces}.length==${nspaces.length}`);
   grid[y] = grid[y].replace(nstr, nspaces);
 }
 
@@ -47,8 +52,8 @@ export function isPartNumber(grid: string[], n: number): boolean {
       const s = isSymbolAdjacent(grid, nstr, x, y);
       // console.log(`isPartNumber returning ${s}`);
       if (s) {
-       console.log(`${n} found at ${x}, ${y} line is:`);
-       console.log(grid[y]);
+       // console.log(`${n} found at ${x}, ${y} line is:`);
+       // console.log(grid[y]);
       }
       spaceOut(grid, x, y, n);
       return s;

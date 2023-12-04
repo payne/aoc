@@ -26,7 +26,10 @@ const exampleData = `
 
 test(`find gear ratios in the example Data`, () => {
   const grid = readGrid(exampleData);
-  findGearRatios
+  const ratios = findGearRatios(grid);
+  console.log(`ratios:`);
+  console.log(ratios);
+  expect(ratios[0]).to.eq(467*35);
 });
 
 const read = () => {
