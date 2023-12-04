@@ -30,15 +30,28 @@ function findX(grid: string[], y: number, nstr: string): number {
   if (isDigit(left) || isDigit(right)) return -1;
   return x;
 }
+
+function spaceOut(grid: string[], x: number, y: number, n: number) {
+  const nstr = "" + n;
+  let nspaces = '';
+  for (let x = 0; x < nstr.length; x++) { nspaces += ' '; }
+  console.log(`change part number ${nstr} to spaces (${nspaces}.length==${nspaces.length}`);
+  grid[y] = grid[y].replace(nstr, nspaces);
+}
+
 export function isPartNumber(grid: string[], n: number): boolean {
   const nstr = "" + n;
   for (let y = 0; y < grid.length; y++) {
-    // const x = grid[y].indexOf(nstr);
     const x = findX(grid, y, nstr);
     if (-1 != x) {
       const s = isSymbolAdjacent(grid, nstr, x, y);
       // console.log(`isPartNumber returning ${s}`);
-      if (s) return true;
+      if (s) {
+       console.log(`${n} found at ${x}, ${y} line is:`);
+       console.log(grid[y]);
+      }
+      spaceOut(grid, x, y, n);
+      return s;
     }
   }
   return false;

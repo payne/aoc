@@ -1,4 +1,5 @@
 import { expect, test } from "vitest";
+import * as fs from 'fs';
 import {
   readGrid,
   isDigit,
@@ -21,6 +22,21 @@ const exampleData = `
 ...$.*....
 .664.598..
 `;
+
+const read = () => {
+  let fileName = 'input.txt';
+  let contents = fs.readFileSync(`src/day03/${fileName}`, 'utf8');
+  return contents;
+}
+
+test(`explore is part number with real data`, () => {
+  const realInput = read(); 
+  const grid = readGrid(realInput);
+  const eg = 904;
+  expect(isPartNumber(grid, eg)).to.eq(true);
+  // since 904 happens twice
+  expect(isPartNumber(grid, eg)).to.eq(true);
+});
 
 test(`sum of partNumbers`, () => {
   expect(sumPartNumbers(exampleData)).to.eq(4361);
