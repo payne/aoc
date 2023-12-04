@@ -29,7 +29,7 @@ export function totalPossibleGames(input: string): number {
     .trim()
     .split("\n")
     .forEach((line, index) => {
-      console.log(`${index}: ${line}`);
+      // console.log(`${index}: ${line}`);
       if (possible(line)) total += index + 1;
     });
   return total;
@@ -41,7 +41,7 @@ export function possible(gameLine: string) {
     const bc = bagContents;
     return acc && bc.blue >= g.blue && bc.red >= g.red && bc.green >= g.green;
   }, true);
-  console.log(`isPossible=${isPossible}`);
+  // console.log(`isPossible=${isPossible}`);
   return isPossible;
 }
 
@@ -63,7 +63,7 @@ export function minBalls(line: string): Balls {
   const balls = countBalls(line);
   return balls.reduce(
     (a, b) => {
-      console.log(`a=${a} b=${b}`);
+      // console.log(`a=${a} b=${b}`);
       a.blue = a.blue < b.blue ? b.blue : a.blue;
       a.red = a.red < b.red ? b.red : a.red;
       a.green = a.green < b.green ? b.green : a.green;
