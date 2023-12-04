@@ -21,6 +21,7 @@ export function isPartNumber(grid: string[], n: number): boolean {
     if (-1 != x) {
       const s = isSymbolAdjacent(grid, nstr, x, y);
       console.log(`isPartNumber returning ${s}`);
+      if (s) return true;
     }
   }
   return false;
@@ -30,6 +31,7 @@ function check(grid, x, y): boolean {
     const c = get(grid, x, y);
     const s = isSymbol(c);
     console.log(`grid(${x},${y})=${c} isSymbol=${s}`);
+    return s;
 }
 
 export function isSymbolAdjacent(grid: string[], nstr: string, x: number, y: number) {
