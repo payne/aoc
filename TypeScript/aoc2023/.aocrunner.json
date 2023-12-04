@@ -36,11 +36,12 @@
     {
       "part1": {
         "solved": false,
-        "result": "576292",
+        "result": "575755",
         "attempts": [
-          "576292"
+          "576292",
+          "575755"
         ],
-        "time": 86.672404
+        "time": 25.460312
       },
       "part2": {
         "solved": false,
