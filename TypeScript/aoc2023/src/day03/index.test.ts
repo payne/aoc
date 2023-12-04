@@ -8,6 +8,7 @@ import {
   getNumbers,
   isPartNumber,
   sumPartNumbers,
+  findGearRatios,
 } from "./index";
 
 const exampleData = `
@@ -22,6 +23,11 @@ const exampleData = `
 ...$.*....
 .664.598..
 `;
+
+test(`find gear ratios in the example Data`, () => {
+  const grid = readGrid(exampleData);
+  findGearRatios
+});
 
 const read = () => {
   let fileName = 'input.txt';
