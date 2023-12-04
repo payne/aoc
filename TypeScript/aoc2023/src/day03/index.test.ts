@@ -1,5 +1,13 @@
 import { expect, test } from "vitest";
-import { readGrid, isDigit, get, isSymbol, getNumbers, isPartNumber, sumPartNumbers } from "./index";
+import {
+  readGrid,
+  isDigit,
+  get,
+  isSymbol,
+  getNumbers,
+  isPartNumber,
+  sumPartNumbers,
+} from "./index";
 
 const exampleData = `
 467..114..
@@ -19,17 +27,16 @@ test(`sum of partNumbers`, () => {
 });
 
 test(`sum of partNumber works with edges ok`, () => {
-const edgeData = `
+  const edgeData = `
 ****
 *35*
 ****
 `;
   expect(sumPartNumbers(edgeData)).to.eq(35);
-
 });
 
 test(`partNumber only counts once when there are multiple adjacent special characters`, () => {
-const manyAdjacentData = `
+  const manyAdjacentData = `
 ..........
 .****.....
 .*35*.....
@@ -45,7 +52,7 @@ test(`isPartNumber works`, () => {
   expect(isPartNumber(grid, 35)).to.eq(true);
   expect(isPartNumber(grid, 114)).to.eq(false);
   expect(isPartNumber(grid, 58)).to.eq(false);
-})
+});
 
 test(`get numbers from input`, () => {
   const numbers = getNumbers(exampleData);
@@ -53,8 +60,8 @@ test(`get numbers from input`, () => {
 });
 
 test(`isSymbol is handy`, () => {
-  expect(isSymbol('9')).to.eq(false);
-  expect(isSymbol('.')).to.eq(false);
+  expect(isSymbol("9")).to.eq(false);
+  expect(isSymbol(".")).to.eq(false);
   expect(isSymbol(undefined)).to.eq(false);
 });
 

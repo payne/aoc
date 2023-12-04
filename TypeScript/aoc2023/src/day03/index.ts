@@ -16,21 +16,23 @@ const part2 = (rawInput: string) => {
 
 export function sumPartNumbers(input: string): number {
   const grid = readGrid(input);
-  return getNumbers(input)
-    .reduce( (acc, n) =>  (isPartNumber(grid, n)) ? acc+n : acc, 0);
+  return getNumbers(input).reduce(
+    (acc, n) => (isPartNumber(grid, n) ? acc + n : acc),
+    0,
+  );
 }
 
-function findX(grid: string[], y: number, nstr: string):number {
+function findX(grid: string[], y: number, nstr: string): number {
   const x = grid[y].indexOf(nstr);
   if (-1 === x) return -1;
-  const left = get(grid, x-1, y);
-  const right = get(grid, x+nstr.length, y);
-  if ( isDigit(left) || isDigit(right) ) return -1;
+  const left = get(grid, x - 1, y);
+  const right = get(grid, x + nstr.length, y);
+  if (isDigit(left) || isDigit(right)) return -1;
   return x;
 }
 export function isPartNumber(grid: string[], n: number): boolean {
   const nstr = "" + n;
-  for (let y=0; y < grid.length; y++) {
+  for (let y = 0; y < grid.length; y++) {
     // const x = grid[y].indexOf(nstr);
     const x = findX(grid, y, nstr);
     if (-1 != x) {
@@ -43,49 +45,58 @@ export function isPartNumber(grid: string[], n: number): boolean {
 }
 
 function check(grid, x, y): boolean {
-    const c = get(grid, x, y);
-    const s = isSymbol(c);
-    // console.log(`grid(${x},${y})=${c} isSymbol=${s}`);
-    return s;
+  const c = get(grid, x, y);
+  const s = isSymbol(c);
+  // console.log(`grid(${x},${y})=${c} isSymbol=${s}`);
+  return s;
 }
 
-export function isSymbolAdjacent(grid: string[], nstr: string, x: number, y: number) {
+export function isSymbolAdjacent(
+  grid: string[],
+  nstr: string,
+  x: number,
+  y: number,
+) {
   // console.log(`isSymbolAdjacent(grid, ${nstr}, ${x}, ${y}`);
   // check up and down for each digit in nstr
-  for (let xd=0; xd < nstr.length; xd++) {
+  for (let xd = 0; xd < nstr.length; xd++) {
     // output nstr locations:
-    check(grid, x+xd, y);
-    if (check(grid, x+xd, y-1)) return true;
-    if (check(grid, x+xd, y+1)) return true;
+    check(grid, x + xd, y);
+    if (check(grid, x + xd, y - 1)) return true;
+    if (check(grid, x + xd, y + 1)) return true;
   }
   // just to the left of the number
-  if (check(grid, x-1, y)) return true;
+  if (check(grid, x - 1, y)) return true;
   // just to the right of the number
-  if (check(grid, x+nstr.length, y)) return true;
+  if (check(grid, x + nstr.length, y)) return true;
 
   // right diagonal down
   // const s = check(grid, x+nstr.length, y+1);
   // console.log(`EXPECT THIS TO BE TRUE ${s}`);
-  if (check(grid, x+nstr.length, y+1)) return true;
+  if (check(grid, x + nstr.length, y + 1)) return true;
   // right diagonal up
-  if (check(grid, x+nstr.length, y-1)) return true;
+  if (check(grid, x + nstr.length, y - 1)) return true;
   // left diagonal down
-  if (check(grid, x-1, y+1)) return true;
+  if (check(grid, x - 1, y + 1)) return true;
   // left diagonal up
-  if (check(grid, x-1, y-1)) return true;
+  if (check(grid, x - 1, y - 1)) return true;
 
   return false;
 }
 
 export function getNumbers(input: string): number[] {
-  return input.replace(/\D/g,' ').trim().split(' ').filter(s => s.length > 0)
-    .map(s => 1*s);
+  return input
+    .replace(/\D/g, " ")
+    .trim()
+    .split(" ")
+    .filter((s) => s.length > 0)
+    .map((s) => 1 * s);
 }
 
 export function isSymbol(c: string): boolean {
   if (c === undefined) return false;
   if (isDigit(c)) return false;
-  if (c === '.') return false;
+  if (c === ".") return false;
   return true;
 }
 
@@ -106,7 +117,11 @@ export function readGrid(input: string): string[] {
 
 const zeroAscii = "0".charCodeAt(0);
 export function isDigit(s: string) {
-  return s !== undefined && s.charCodeAt(0) >= zeroAscii && s.charCodeAt(0) <= zeroAscii + 10;
+  return (
+    s !== undefined &&
+    s.charCodeAt(0) >= zeroAscii &&
+    s.charCodeAt(0) <= zeroAscii + 10
+  );
 }
 
 run({
